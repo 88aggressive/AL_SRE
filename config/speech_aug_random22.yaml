@@ -1,0 +1,58 @@
+speechaug:
+    mod: random   # chain,concat,random
+    aug_classes:
+        - 
+            aug_name: add_noise  # Define the speeech augment name 
+            aug_type: Env        # Env or Time
+            random_mod_weight: 1
+            reverb_prob: 0.0
+            noise_prob: 1.0
+            noise_snr_low: 0
+            noise_snr_high: 15
+            noise_csv: exp/aug_csv2/combine_canteen_road.csv
+            noise_num_workers: 0
+
+
+speechaug_test:
+    mod: chain   # chain,concat,random
+    aug_classes:
+        -
+            aug_name: add_noise  # Define the speeech augment name
+            aug_type: Env        # Env or Time
+            random_mod_weight: 1
+            reverb_prob: 0.0
+            noise_prob: 1.0
+            noise_snr_low: 0
+            noise_snr_high: 0
+            noise_csv: exp/aug_csv2/haisi_road.csv
+            noise_num_workers: 0
+
+#combine_canteen_road.csv
+# You can define here for more augment strategy.
+# tail_speechaug:
+#     mod: chain
+#     aug_classes:
+#         -
+#             aug_name: augment_wavedrop
+#             aug_type: Time
+#             random_mod_weight: 1
+#             perturb_prob: 0.0
+#             drop_freq_prob: 1.0
+#             drop_chunk_prob: 1.0
+#             drop_freq_count_low: 0
+#             drop_freq_count_high: 3
+#             drop_chunk_count_low: 0
+#             drop_chunk_count_high: 4
+#             drop_chunk_length_low: 1000
+#             drop_chunk_length_high: 2000
+#             sample_rate: 16000
+#             speeds: [100]
+        # - 
+        #     aug_name: augment_speed
+        #     aug_type: Time
+        #     perturb_prob: 1.0
+        #     drop_freq_prob: 0.0
+        #     drop_chunk_prob: 0.0
+        #     sample_rate: 16000
+        #     speeds: [95, 100, 105]
+        #     keep_shape: true
